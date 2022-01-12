@@ -1,0 +1,182 @@
+---
+title: "Programming assignment 1"
+output: 
+  html_document: 
+    number_sections: yes
+    theme: spacelab
+    toc: yes
+    highlight: tango
+---
+
+**Topics**: Github, Rmarkdown, RStudio projects, Praat
+
+# Overview
+
+In this programming assignment you will complete simple measurements in praat, 
+utilize the basic data structures of R and demonstrate your ability to 
+manipulate them, write a reproducible report using RMarkdown, and store all of 
+the files in a publicly available repository on github.
+This assignment lays the groundwork for everything else you will learn this semester. 
+
+**Assigned**: Week 4  
+**Due**: Thursday, 2/20 before 5pm
+
+# Instructions
+
+## Praat
+
+1. Make a recording of the following two phrases (both phrases in a single 
+sound object): 
+	- "hablo por la mañana"
+	- "habló por la mañana"
+2. Create a textgrid for the sound object
+	- The textgrid should have 3 tiers
+		- 2 interval tiers: word, vowel
+		- 1 point tier: mid
+3. Segment the sound object
+	- Select the sound object and the textgrid
+	- Select `View & Edit`
+	- Use the interval tier `word` to mark the beginning and the end of the 
+	words "hablo" and "habló"
+	- Use the interval tier `vowel` to mark the beginning and the end of the 
+	[o] in "hablo" and "habló"
+	- Use the point tier `mid` to mark the midpoint of [o] in "hablo" and 
+	"habló"
+4. Take the following measurements and write them down somewhere:
+	- Duration in ms of "hablo" and "habló"
+	- Duration in ms of [o] in both words
+	- Intensity in dB at the midpoint of [o] in both words (intensity > get 
+	intensity)
+	- F0 in Hz at the midpoint of [o] in both words (pitch > get pitch)
+5. Save the files
+	- Save the sound object as a .wav file called `my_sound.wav`
+	- Save the textgrid as a .textgrid file called `my_sound.textgrid`
+	- If you have trouble with any of the steps, use the help manual in praat 
+	(it is surprisingly good) or ask a classmate by making an issue in your 
+	github repo (see below)
+
+## Github
+
+6. Create repo called "pa_1". 
+	- Make sure to make it public 
+	- You don't need to initialize with a README file (you'll create one later).
+	- Once you have created the repo, clone it to the desktop of your computer 
+	using the github.app
+
+## R 
+
+7. Open RStudio and create a new RStudio project 
+	- Make sure to select the folder of the `pa_1` repo you cloned to your 
+	desktop (select "Existing directory")
+	- You should automatically have the new project open once you have created 
+	it, but double check just in case.  
+	If necessary, close RStudio and reopen it by double clicking the 
+	`pa_1.Rproj` file that is now inside the `pa_1` folder on your desktop 
+	(hint: if at this point you can't find this file, you did something wrong. 
+	Burn down the house and start again)
+	- Once you have opened your new `pa_1.Rproj` file, check to make sure that 
+	you have the `git` tab available to you. 
+	You will need this to commit, push/pull. 
+	If it's not there, you did something wrong (you probably didn't clone the 
+	repo using the github.app)
+8. Create an new R Markdown file (File > R Markdown) named **README**. 
+	- Note: the capital letters are necessary. If you have done this step 
+	correctly a template file will pop up and you should have `README.Rmd` 
+	inside the `pa_1` folder. 
+	- Delete everything inside the `README.Rmd` file. Yes. Everything.
+	- Add the YAML front matter and a section header:  
+
+```
+---
+output: github_document
+---
+
+# Test
+```
+
+> At this point you can test to make sure that everything is working by 
+clicking `knit`. 
+This will create a `README.md` file and you should see the rendered 
+document in the viewer pane of RStudio. 
+If you don't, you probably made a mistake with the YAML front matter above. 
+Try copying and pasting. 
+Spaces and capitals matter.
+
+9. Assign the values your wrote down in the praat section to objects inside of 
+an r chunk
+	- `dur_hablo_stressed`: for the duration of "habló"
+	- `dur_hablo_unstressed`: for the duration of "hablo"
+	- `dur_o_stressed`: for the duration of the stressed [o]
+	- `dur_o_unstressed`: for the duration of the unstressed [o]
+	- `int_o_stressed`: for the intensity at the midpoint of the stressed [o]
+	- `int_o_unstressed`: for the intensity at the midpoint of the unstressed [o]
+	- `f0_o_stressed`: for f0 at the midpoint of the stressed [o]
+	- `f0_o_unstressed`: for f0 at the midpoint of the unstressed [o]
+10. Once you have assigned these values to objects you can use them to perform 
+simple math operations. Calculate the following: 
+	- The difference in ms between "hablo" and "habló"
+	- The difference in ms between the stressed and unstressed [o] 
+	- The difference in intensity between the stressed and unstressed [o]
+	- The difference in F0 between the stressed and unstressed [o]  
+	Note: At this point it is a good idea to save and knit again to make sure 
+	everything is working. If it is, great! You're almost done. 
+11. Write 2 or 3 sentences summarizing your observations and knit the 
+document again. 
+
+## Back to git
+
+12. Use the `git` pane from RStudio to commit all the new files to your repo. 
+  - Make sure to include a meaningful commit message and don't forget to push your commits to github. 
+  - Open the repo in your web browser and make sure everything worked. 
+13. Create an `issue` in your repo and tag me (@jvcasillas). 
+  - This is how you "turn in" your assignment
+  - You must tag me before 5pm on February 20th for full credit.
+
+# Evaluation
+
+This is programming assignment 1 of 4. It is worth 10 of the 40 possible 
+points. In order to receive full credit you must complete steps 1-13 above, 
+and follow all the instructions. 
+
+|                 Task                             | Points |
+| :----------------------------------------------- | -----: |
+| Create sound object and textgrid                 |    0.5 |
+| Correctly use interval and point tiers           |      2 |
+| Create `pa_1` repo                               |    0.5 |
+| Create an RStudio project                        |      1 |
+| Create an Rmarkdown README file                  |      1 |
+| Calculate duration, intensity and F0 differences |      3 |
+| Successfully knit the Rmarkdown file             |      1 |
+| Commit and push to repo                          |      1 |
+| **Total**                                        |     10 |
+
+</br></br></br>
+
+# Tips
+
+- Careful regarding what you actually select when creating the RStudio project. 
+We had some issues with this in class. 
+You have to make sure that you are following the instructions step by step. 
+Your project folder should look like this when you are finished:
+
+```
+- pa_1
+  - my_sound.wav
+  - my_sound.textgrid
+  - README.Rmd
+  - README.md
+```
+
+- If you are getting errors when trying to take pitch and intensity 
+measurements in praat make sure "Show pitch" and "Show intensity" have a 
+checkmark next to them
+- Remember that you can manipulate objects in R the same way you use variables 
+in basic math. If `x = 2` and `y = 1`, then `x - y = 1`. 
+- Forgot how to make an R chunk? In RStudio use the insert button and select R 
+(or google it).
+- It is probably a bad idea to wait until the last second to start this 
+assignment. 
+
+</br></br></br>
+
+
