@@ -19,7 +19,7 @@ the files in a publicly available repository on github.
 This assignment lays the groundwork for everything else you will learn this semester. 
 
 **Assigned**: Week 4  
-**Due**: Thursday, 2/20 before 5pm
+**Due**: Monday, 2/21 before 5pm
 
 # Instructions
 
