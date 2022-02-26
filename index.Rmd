@@ -165,6 +165,7 @@ Your project folder should look like this when you are finished:
   - my_sound.textgrid
   - README.Rmd
   - README.md
+  - pa_1.Rproj
 ```
 
 - If you are getting errors when trying to take pitch and intensity 
