@@ -1,92 +1,74 @@
 ---
 title: "Programming assignment 1"
-output: 
-  html_document: 
-    number_sections: yes
-    theme: spacelab
-    toc: yes
-    highlight: tango
+format: 
+  html:
+    theme: cyborg
+toc: true
+number-sections: false
+highlight-style: pygments
 ---
 
 **Topics**: Github, Rmarkdown, RStudio projects, Praat
 
 # Overview
 
-In this programming assignment you will complete simple measurements in praat, 
-utilize the basic data structures of R and demonstrate your ability to 
-manipulate them, write a reproducible report using RMarkdown, and store all of 
-the files in a publicly available repository on github.
-This assignment lays the groundwork for everything else you will learn this semester. 
+In this programming assignment you will complete simple measurements in praat, utilize the basic data structures of R and demonstrate your ability to manipulate them, write a reproducible report using RMarkdown, and store all of the files in a publicly available repository on github. 
+This assignment lays the groundwork for everything else you will learn this semester.
 
 **Assigned**: Week 4  
-**Due**: Monday, 2/21 before 5pm
+**Due**: Monday, 2/19 before 5pm
 
 # Instructions
 
 ## Praat
 
-1. Make a recording of the following two phrases (both phrases in a single 
-sound object): 
+1. Make a recording of the following two phrases (both phrases in a single sound object):
 	- "hablo por la mañana"
 	- "habló por la mañana"
-2. Create a textgrid for the sound object
-	- The textgrid should have 3 tiers
-		- 2 interval tiers: word, vowel
-		- 1 point tier: mid
+2. Create a textgrid for the sound object. 
+The textgrid should have 3 tiers:
+	- 2 interval tiers: word, vowel
+	- 1 point tier: mid
 3. Segment the sound object
 	- Select the sound object and the textgrid
 	- Select `View & Edit`
-	- Use the interval tier `word` to mark the beginning and the end of the 
-	words "hablo" and "habló"
-	- Use the interval tier `vowel` to mark the beginning and the end of the 
-	[o] in "hablo" and "habló"
-	- Use the point tier `mid` to mark the midpoint of [o] in "hablo" and 
-	"habló"
+	- Use the interval tier `word` to mark the beginning and the end of the words "hablo" and "habló"
+	- Use the interval tier `vowel` to mark the beginning and the end of the [o] in "hablo" and "habló"
+	- Use the point tier `mid` to mark the midpoint of [o] in "hablo" and "habló"
 4. Take the following measurements and write them down somewhere:
 	- Duration in ms of "hablo" and "habló"
 	- Duration in ms of [o] in both words
-	- Intensity in dB at the midpoint of [o] in both words (intensity > get 
-	intensity)
+	- Intensity in dB at the midpoint of [o] in both words (intensity > get intensity)
 	- F0 in Hz at the midpoint of [o] in both words (pitch > get pitch)
 5. Save the files
 	- Save the sound object as a .wav file called `my_sound.wav`
 	- Save the textgrid as a .textgrid file called `my_sound.textgrid`
-	- If you have trouble with any of the steps, use the help manual in praat 
-	(it is surprisingly good) or ask a classmate by making an issue in your 
-	github repo (see below)
+	- If you have trouble with any of the steps, use the help manual in praat (it is surprisingly good) or ask a classmate by making an issue in your github repo (see below)
 
 ## Github
 
 6. Create repo called "pa_1". 
 	- Make sure to make it public 
 	- You don't need to initialize with a README file (you'll create one later).
-	- Once you have created the repo, clone it to the desktop of your computer 
-	using the github.app
+	- Once you have created the repo, clone it to the desktop of your computer using the github.app
 
 ## R 
 
 7. Open RStudio and create a new RStudio project 
-	- Make sure to select the folder of the `pa_1` repo you cloned to your 
-	desktop (select "Existing directory")
-	- You should automatically have the new project open once you have created 
-	it, but double check just in case.  
-	If necessary, close RStudio and reopen it by double clicking the 
-	`pa_1.Rproj` file that is now inside the `pa_1` folder on your desktop 
-	(hint: if at this point you can't find this file, you did something wrong. 
+	- Make sure to select the folder of the `pa_1` repo you cloned to your desktop (select "Existing directory")
+	- You should automatically have the new project open once you have created it, but double check just in case.
+	If necessary, close RStudio and reopen it by double clicking the `pa_1.Rproj` file that is now inside the `pa_1` folder on your desktop (hint: if at this point you can't find this file, you did something wrong. 
 	Burn down the house and start again)
-	- Once you have opened your new `pa_1.Rproj` file, check to make sure that 
-	you have the `git` tab available to you. 
-	You will need this to commit, push/pull. 
-	If it's not there, you did something wrong (you probably didn't clone the 
-	repo using the github.app)
+	- Once you have opened your new `pa_1.Rproj` file, check to make sure that you have the `git` tab available to you. 
+	You will need this to commit, push/pull.
+	If it's not there, you did something wrong (you probably didn't clone the repo using the github.app)
 8. Create an new R Markdown file (File > R Markdown) named **README**. 
-	- Note: the capital letters are necessary. If you have done this step 
-	correctly a template file will pop up and you should have `README.Rmd` 
-	inside the `pa_1` folder. 
+	- Note: the capital letters are necessary. If you have done this step correctly a template file will pop up and you should have `README.Rmd` inside the `pa_1` folder.
 	- Delete everything inside the `README.Rmd` file. Yes. Everything.
 	- Add the YAML front matter and a section header:  
 
-```
+```{r}
+#| eval: false
 ---
 output: github_document
 ---
@@ -159,7 +141,8 @@ We had some issues with this in class.
 You have to make sure that you are following the instructions step by step. 
 Your project folder should look like this when you are finished:
 
-```
+```{r}
+#| eval: false
 - pa_1
   - my_sound.wav
   - my_sound.textgrid
